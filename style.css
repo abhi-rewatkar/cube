@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    perspective: 1000px;
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateY(45deg);
+    animation: rotate 5s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000;
+}
+
+.front  { transform: translateZ(100px); background-color: red; }
+.back   { transform: rotateY(180deg) translateZ(100px); background-color: blue; }
+.left   { transform: rotateY(-90deg) translateZ(100px); background-color: green; }
+.right  { transform: rotateY(90deg) translateZ(100px); background-color: yellow; }
+.top    { transform: rotateX(90deg) translateZ(100px); background-color: cyan; }
+.bottom { transform: rotateX(-90deg) translateZ(100px); background-color: magenta; }
+
+@keyframes rotate {
+    from {
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+    to {
+        transform: rotateX(405deg) rotateY(405deg);
+    }
+}
